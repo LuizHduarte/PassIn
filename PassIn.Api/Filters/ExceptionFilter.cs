@@ -31,11 +31,15 @@ public class ExceptionFilter : IExceptionFilter
         }
         else if (context.Exception is ErrorOnValidationException)
         {
-
             context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
             context.Result = new BadRequestObjectResult(new ResponseErrorJson(context.Exception.Message));
         }
-        
+        else if (context.Exception is ConflitException)
+        {
+            context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Conflict;
+            context.Result = new ConflictObjectResult(new ResponseErrorJson(context.Exception.Message));
+        }
+
 
     }
 

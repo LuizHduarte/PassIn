@@ -7,11 +7,17 @@ namespace PassIn.Application.UseCases.Events.Register;
 
 public class RegisterEventUseCase
 {
-    public ResponseRegisteredEventJson Execute(RequestEventJson request)
+
+    private readonly PassInDbContext _dbContext;
+
+    public RegisterEventUseCase()
+    {
+        _dbContext = new PassInDbContext();
+    }
+ 
+    public ResponseRegisteredJson Execute(RequestEventJson request)
     {
         Validate(request);
-
-        var dbContext = new PassInDbContext();
 
         var entity = new Infrastructure.Entities.Event
         {
@@ -22,10 +28,10 @@ public class RegisterEventUseCase
             Slug = request.Title.ToLower().Replace(" ", "-")
         };
 
-        dbContext.Events.Add(entity);
-        dbContext.SaveChanges();
+        _dbContext.Events.Add(entity);
+        _dbContext.SaveChanges();
 
-        return new ResponseRegisteredEventJson
+        return new ResponseRegisteredJson
         {
             Id = entity.Id,
         };
