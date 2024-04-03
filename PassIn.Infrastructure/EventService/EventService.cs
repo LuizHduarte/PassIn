@@ -1,4 +1,5 @@
-﻿using PassIn.Domain.Entities.Events;
+﻿using Microsoft.EntityFrameworkCore;
+using PassIn.Domain.Entities.Events;
 
 namespace PassIn.Infrastructure.EventService;
 public class EventService : IEventService
@@ -19,7 +20,7 @@ public class EventService : IEventService
     public Event FindEventById(Guid id)
     {
         //dbContext.Events.Find(id);
-        var entity = _dbContext.Events.FirstOrDefault(ev => ev.Id == id);
+        var entity = _dbContext.Events.Include(ev => ev.Attendees).FirstOrDefault(ev => ev.Id == id);
         return entity;
     }
 

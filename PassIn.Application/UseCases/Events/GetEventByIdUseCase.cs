@@ -29,7 +29,7 @@ public class GetEventByIdUseCase : IGetEventByIdUseCase
             Title = entity.Title,
             Details = entity.Details,
             Maximum_Attendees = entity.Maximum_Attendees,
-            AttendeesAmount = -1
+            AttendeesAmount = entity.Attendees.Count()
         };
     }
 }

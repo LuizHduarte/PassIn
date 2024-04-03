@@ -19,4 +19,14 @@ public class AttendeesController : ControllerBase
         var response = useCase.Execute(eventId, request);
         return Created(string.Empty, response);
     }
+
+    [HttpGet]
+    [Route("{eventId}")]
+    [ProducesResponseType(typeof(ResponseAllAttendeesJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+    public IActionResult GetAll([FromServices] IGetAllAttendeesByEventIdUseCase useCase, [FromRoute] Guid eventId)
+    {
+        var response = useCase.Execute(eventId);
+        return Ok(response);
+    }
 }

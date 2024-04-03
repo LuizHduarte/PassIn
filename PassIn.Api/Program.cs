@@ -15,7 +15,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IRegisterAttendeeOnEventUseCase, RegisterAttendeeOnEventUseCase>();
 builder.Services.AddScoped<IGetEventByIdUseCase, GetEventByIdUseCase>();
 builder.Services.AddScoped<IRegisterEventUseCase, RegisterEventUseCase>();
+builder.Services.AddScoped<IGetAllAttendeesByEventIdUseCase, GetAllAttendeesByEventIduseCase>();
 builder.Services.AddMvc(option => option.Filters.Add(typeof(ExceptionFilter)));
+
 builder.Services.AddScoped<IEventService>(options =>
 {
     return new EventService();

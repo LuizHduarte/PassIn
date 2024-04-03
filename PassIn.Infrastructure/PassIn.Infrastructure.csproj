@@ -17,6 +17,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\PassIn.Domain.csproj" />
+    <ProjectReference Include="..\PassIn.Communication\PassIn.Communication.csproj" />
+    <ProjectReference Include="..\PassIn.Domain\PassIn.Domain.csproj" />
   </ItemGroup>
 
 </Project>
