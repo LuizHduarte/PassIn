@@ -6,4 +6,5 @@ public interface IAttendeeService
     void AddAttendeeOnEvent(Attendee attendee);
     bool CheckAttendeeAlreadyRegisterd(string email, Guid eventId);
     public ResponseAllAttendeesJson GetAllAttendees(Guid eventId);
+    public bool CheckExistingAttendee(Guid attendeeId);
 }

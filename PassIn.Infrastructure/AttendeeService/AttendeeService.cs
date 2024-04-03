@@ -29,6 +29,7 @@ public class AttendeeService : IAttendeeService
     {
         var response = _dbContext.Events
             .Include(ev => ev.Attendees)
+            .ThenInclude(attendee => attendee.CheckIn)
             .FirstOrDefault(ev => ev.Id == eventId);
 
         return new ResponseAllAttendeesJson
@@ -38,8 +39,15 @@ public class AttendeeService : IAttendeeService
                 Id = attendee.Id,
                 Name = attendee.Name,
                 Email = attendee.email,
-                CreatedAt = attendee.Created_At
+                CreatedAt = attendee.Created_At,
+                CheckedInAt = attendee.CheckIn?.Created_at
+
             }).ToList()
         };
+    }
+
+    public bool CheckExistingAttendee(Guid attendeeId)
+    {
+        return _dbContext.Attendees.Any(attendee => attendee.Id == attendeeId);
     }
 }

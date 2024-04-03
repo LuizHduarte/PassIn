@@ -3,7 +3,6 @@ using PassIn.Communication.Responses;
 using PassIn.Domain.Entities.Attendees;
 using PassIn.Domain.Entities.Events;
 using PassIn.Exceptions;
-using PassIn.Infrastructure;
 using System.Net.Mail;
 
 namespace PassIn.Application.UseCases.Attendees;
