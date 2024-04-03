@@ -2,8 +2,6 @@
 using PassIn.Domain.Entities.Events;
 using PassIn.Domain.Entities.Attendees;
 
-
-
 namespace PassIn.Infrastructure;
 public class PassInDbContext : DbContext
 {
