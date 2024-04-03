@@ -15,4 +15,8 @@
     <Folder Include="Database\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\PassIn.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PassIn.Application.UseCases.Events.GetById;
-using PassIn.Application.UseCases.Events.Register;
-using PassIn.Application.UseCases.Events.RegisterAttendee;
+using PassIn.Application.UseCases.Events;
 using PassIn.Communication.Requests;
 using PassIn.Communication.Responses;
-using PassIn.Exceptions;
+
 
 namespace PassIn.Api.Controllers;
 
@@ -15,9 +13,8 @@ public class EventsController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisteredJson),StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
-    public IActionResult Register([FromBody] RequestEventJson request)
+    public IActionResult Register([FromServices] IRegisterEventUseCase useCase,[FromBody] RequestEventJson request)
     {
-        var useCase = new RegisterEventUseCase();
         var response = useCase.Execute(request);
 
         return Created(string.Empty, response);
@@ -27,11 +24,9 @@ public class EventsController : ControllerBase
     [Route("{id}")]
     [ProducesResponseType(typeof(ResponseEventJson), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
-    public IActionResult GetById([FromRoute] Guid id)
+    public IActionResult GetById([FromServices] IGetEventByIdUseCase useCase ,[FromRoute] Guid id)
     {
-        var useCase = new GetEventByIdUseCase();
         var response = useCase.Execute(id);
-
         return Ok(response);
     }
 

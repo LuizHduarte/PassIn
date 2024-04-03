@@ -1,4 +1,4 @@
-﻿namespace PassIn.Infrastructure.Entities;
+﻿namespace PassIn.Domain.Entities.Attendees;
 public class Attendee
 {
     public Guid Id { get; set; }

@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PassIn.Infrastructure.Entities;
-using static System.Net.Mime.MediaTypeNames;
+using PassIn.Domain.Entities.Events;
+using PassIn.Domain.Entities.Attendees;
+
+
 
 namespace PassIn.Infrastructure;
 public class PassInDbContext : DbContext

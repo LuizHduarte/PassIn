@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PassIn.Communication", "Pas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PassIn.Exceptions", "PassIn.Exceptions\PassIn.Exceptions.csproj", "{C98E9A70-91BD-45D2-A403-ED7AF882D3FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassIn.Domain", "Domain\PassIn.Domain.csproj", "{AC480D6F-75CB-4208-B1E3-D27C2BC13A42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C98E9A70-91BD-45D2-A403-ED7AF882D3FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C98E9A70-91BD-45D2-A403-ED7AF882D3FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C98E9A70-91BD-45D2-A403-ED7AF882D3FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC480D6F-75CB-4208-B1E3-D27C2BC13A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC480D6F-75CB-4208-B1E3-D27C2BC13A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC480D6F-75CB-4208-B1E3-D27C2BC13A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC480D6F-75CB-4208-B1E3-D27C2BC13A42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
