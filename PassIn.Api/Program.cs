@@ -23,7 +23,6 @@ DotEnvService.Load(dotenv);
 */
 
 var POSTGRES_USER = Environment.GetEnvironmentVariable("POSTGRES_USER");
-Console.WriteLine(POSTGRES_USER);
 var POSTGRES_PASSWORD = Environment.GetEnvironmentVariable("POSTGRES_PASSWORD");
 var POSTGRES_DB = Environment.GetEnvironmentVariable("POSTGRES_DB");
 var POSTGRES_SERVER = Environment.GetEnvironmentVariable("POSTGRES_SERVER");
