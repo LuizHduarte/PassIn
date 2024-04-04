@@ -12,6 +12,7 @@ services:
       - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=passin
     volumes:
+      - 'db:/var/lib/postgresql/data'
       - type: bind
         source: ./init.sql
         target: /docker-entrypoint-initdb.d/init.sql
@@ -76,3 +77,4 @@ volumes:
   sonarqube_temp:
   sonar_db:
   sonar_db_data:
+  db:
