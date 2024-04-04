@@ -19,7 +19,7 @@ public class GetAllAttendeesByEventIduseCase : IGetAllAttendeesByEventIdUseCase
         {
             throw new NotFoundException("An event with this id does not exists");
         }
-       
+
         return response;
     }
 }

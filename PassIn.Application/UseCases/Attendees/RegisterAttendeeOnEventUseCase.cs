@@ -24,7 +24,7 @@ public class RegisterAttendeeOnEventUseCase : IRegisterAttendeeOnEventUseCase
         var entity = new Attendee
         {
             Id = Guid.NewGuid(),
-            email = request.Email,
+            Email = request.Email,
             Name = request.Name,
             Event_Id = eventId,
             Created_At = DateTime.UtcNow,

@@ -1,7 +1,6 @@
 ﻿using PassIn.Communication.Responses;
 using PassIn.Domain.Entities.Events;
 using PassIn.Exceptions;
-using PassIn.Infrastructure;
 
 namespace PassIn.Application.UseCases.Events;
 public class GetEventByIdUseCase : IGetEventByIdUseCase

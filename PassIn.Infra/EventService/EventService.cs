@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PassIn.Domain.Entities.Events;
 
-namespace PassIn.Infrastructure.EventService;
+namespace PassIn.Infra.Service;
 public class EventService : IEventService
 {
     private readonly PassInDbContext _dbContext;
 
-    public EventService()
+    public EventService(PassInDbContext dbContext)
     {
-        _dbContext = new PassInDbContext();
+        _dbContext = dbContext;
     }
 
     public void AddEvent(Event entity)

@@ -1,13 +1,13 @@
 ﻿using PassIn.Domain.Entities.Checkin;
 
-namespace PassIn.Infrastructure.CheckinService;
+namespace PassIn.Infra.CheckinService;
 public class CheckinService : ICheckinService
 {
     private readonly PassInDbContext _dbContext;
 
-    public CheckinService()
+    public CheckinService(PassInDbContext dbContext)
     {
-        _dbContext = new PassInDbContext();
+        _dbContext = dbContext;
     }
 
     public bool CheckAllReadyCheckedAttendee (Guid attendeeId)
