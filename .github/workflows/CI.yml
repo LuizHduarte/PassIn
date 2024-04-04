@@ -3,14 +3,16 @@ name: CI
 on:
   push:
     branches:
-      -main
+      - main
 
 jobs:
   buid-and-push:
     name: 'Build and Push'
     runs-on: ubuntu-latest
+
+
     steps:
-      - name: 'Checkout'
+      - name: Checkout
         uses: actions/checkout@v4
       
       - name: Generate sha
@@ -20,4 +22,4 @@ jobs:
           echo "sha=$SHA" >> $GITHUB_OUTPUT
       
       -name: Buld docker image
-        run: docker build -t luizhduarte/passin:${{ steps.generate_sha.outputs.sha}} .
+        run: docker build -t luizhduarte/passIn:${{ steps.generate_sha.outputs.sha}} .
