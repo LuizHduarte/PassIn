@@ -4,13 +4,13 @@ services:
   postgres:
     image: postgres:16.2-alpine3.19
     container_name: db-passin
-    hostname: postgresql
+    hostname: ${POSTGRES_SERVER}
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=admin
-      - POSTGRES_DB=passin
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - 'db:/var/lib/postgresql/data'
       - type: bind
@@ -30,6 +30,11 @@ services:
       - postgres
     networks:
       - passin
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_SERVER=${POSTGRES_SERVER}
 
   sonar_db:
       image: postgres:16.2-alpine3.19
@@ -63,7 +68,6 @@ services:
       - sonar_db
     networks:
       - passin
-
 
 networks:
   passin:

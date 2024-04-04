@@ -10,11 +10,26 @@ using PassIn.Infra;
 using PassIn.Infra.AttendeeService;
 using PassIn.Infra.CheckinService;
 using PassIn.Infra.Service;
+using System.IO;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<PassInDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("pgsqlConnection")));
+/*
+var str_directory = Environment.CurrentDirectory.ToString();
+var root = Directory.GetParent(str_directory).FullName;
+var dotenv = Path.Combine(root, ".env");
+DotEnvService.Load(dotenv);
+*/
+
+var POSTGRES_USER = Environment.GetEnvironmentVariable("POSTGRES_USER");
+var POSTGRES_PASSWORD = Environment.GetEnvironmentVariable("POSTGRES_PASSWORD");
+var POSTGRES_DB = Environment.GetEnvironmentVariable("POSTGRES_DB");
+var POSTGRES_SERVER = Environment.GetEnvironmentVariable("POSTGRES_SERVER");
+var connectionString = $"Server={POSTGRES_SERVER};Database=passin;User Id={POSTGRES_USER};Password={POSTGRES_PASSWORD};Pooling=true";
+
+builder.Configuration["DbConnectionString"] = connectionString;
+builder.Services.AddDbContext<PassInDbContext>(options => options.UseNpgsql(connectionString));
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
